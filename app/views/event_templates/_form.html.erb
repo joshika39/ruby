@@ -1,0 +1,29 @@
+<%= form_with model: event_template do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% event_template.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :youngest %><br>
+    <%= form.number_field  :youngest, in: 1.0..20.0 %>
+    <% event_template.errors.full_messages_for(:youngest).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :oldest %><br>
+    <%= form.number_field  :oldest, in: 1.0..20.0 %>
+    <% event_template.errors.full_messages_for(:oldest).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
